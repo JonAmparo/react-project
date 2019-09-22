@@ -6,7 +6,7 @@ import twitterIcon from "../assets/twitter_icon.png";
 const SOCIAL_PROFILES = [
     {
         id: 1,
-        link: 'mailto:jonathanamparo2@live.com',
+        link: 'mailto:jonathanmamparo@gmail.com',
         image: emailIcon
     },
     {

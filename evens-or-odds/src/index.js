@@ -16,7 +16,6 @@ const rootReducer = () => {
 const store = createStore(rootReducer);
 
 console.log("store.getState()", store.getState());
-
 console.log("store", store);
 
 ReactDOM.render(<App />, document.getElementById("root"));
