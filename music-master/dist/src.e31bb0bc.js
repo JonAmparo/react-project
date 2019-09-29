@@ -30965,7 +30965,7 @@ function (_Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.searchArtist("Pentatonix");
+      this.searchArtist("shiloh dynasty");
     }
   }, {
     key: "render",
@@ -31100,7 +31100,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54634" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57481" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
