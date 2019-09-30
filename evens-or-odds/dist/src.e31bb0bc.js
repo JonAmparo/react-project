@@ -34141,7 +34141,7 @@ var fetchNewDeck = function fetchNewDeck() {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
       }
 
-      response.json();
+      return response.json();
     }).then(function (json) {
       return dispatch(fetchDeckSuccess(json));
     }).catch(function (error) {
@@ -34518,7 +34518,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63279" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65113" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

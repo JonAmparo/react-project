@@ -17,7 +17,7 @@ export const fetchNewDeck = () => dispatch => {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
       }
 
-      response.json();
+      return response.json();
     })
     .then(json => dispatch(fetchDeckSuccess(json)))
     .catch(error => dispatch(fetchDeckError(error)));
