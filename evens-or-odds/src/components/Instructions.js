@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import { expandInstructions, collapseInstructions } from "../actions/settings";
 
 const Instructions = props => {
-  const { instructionsExpanded, expandInstructions, collapseInstructions} = props;
+  const {
+    instructionsExpanded,
+    expandInstructions,
+    collapseInstructions
+  } = props;
 
   if (instructionsExpanded) {
     return (
@@ -18,7 +22,7 @@ const Instructions = props => {
         <br />
         <button onClick={collapseInstructions}>Show less</button>
       </div>
-    )
+    );
   }
 
   return (
@@ -27,10 +31,10 @@ const Instructions = props => {
       <p>Welcome to evens or odds. The game goes like this...</p>
       <button onClick={expandInstructions}>Read more</button>
     </div>
-  )
-}
+  );
+};
 
 export default connect(
-    state => ({ instructionsExpanded: state.instructionsExpanded }),
-    { expandInstructions, collapseInstructions }
-  )(Instructions);
+  state => ({ instructionsExpanded: state.settings.instructionsExpanded }),
+  { expandInstructions, collapseInstructions }
+)(Instructions);
