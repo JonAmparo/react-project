@@ -34401,19 +34401,49 @@ var _reactRedux = require("react-redux");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var correctGuessesRecordKey = "CORRECT_GUESSES_RECORD_foo123";
+
+var checkRecord = function checkRecord(correctGuesses) {
+  var record = Number(localStorage.getItem(correctGuessesRecordKey));
+
+  if (correctGuesses > record) {
+    localStorage.setItem(correctGuessesRecordKey, correctGuesses);
+    return {
+      record: correctGuesses,
+      isNewRecord: true
+    };
+  }
+
+  return {
+    record: record,
+    isNewRecord: false
+  };
+};
+
 var GameState = function GameState(_ref) {
   var remaining = _ref.remaining,
-      correctGuesses = _ref.correctGuesses;
+      correctGuesses = _ref.correctGuesses,
+      incorrectGuesses = _ref.incorrectGuesses;
   var guessText = correctGuesses === 1 ? "guess" : "guesses";
-  return _react.default.createElement("div", null, _react.default.createElement("p", null, remaining, " cards remaining"), _react.default.createElement("p", null, correctGuesses, " correct ", guessText));
+  var guessText2 = incorrectGuesses === 1 ? "guess" : "guesses";
+
+  var _checkRecord = checkRecord(correctGuesses),
+      record = _checkRecord.record,
+      isNewRecord = _checkRecord.isNewRecord;
+
+  var recordLabel = isNewRecord ? "🎉 New Record" : "Record";
+  return _react.default.createElement("div", null, _react.default.createElement("h3", null, recordLabel, ": ", record), _react.default.createElement("p", null, remaining, " cards remaining"), _react.default.createElement("p", null, correctGuesses, " correct ", guessText), _react.default.createElement("p", null, incorrectGuesses, " incorrect ", guessText2));
 };
 
 var _default = (0, _reactRedux.connect)(function (_ref2) {
   var remaining = _ref2.deck.remaining,
-      correctGuesses = _ref2.gameState.correctGuesses;
+      _ref2$gameState = _ref2.gameState,
+      correctGuesses = _ref2$gameState.correctGuesses,
+      incorrectGuesses = _ref2$gameState.incorrectGuesses;
   return {
     remaining: remaining,
-    correctGuesses: correctGuesses
+    correctGuesses: correctGuesses,
+    incorrectGuesses: incorrectGuesses
   };
 })(GameState);
 
@@ -34506,7 +34536,7 @@ function (_Component) {
         return _react.default.createElement("div", null, _react.default.createElement("p", null, "Please try reloading the app. An error occured."), _react.default.createElement("p", null, this.props.message));
       }
 
-      return _react.default.createElement("div", null, _react.default.createElement("h2", null, "\u2660 \u2666 Evens or Odds \u2665 \u2660"), this.props.gameStarted ? _react.default.createElement("div", null, _react.default.createElement("h3", null, "The game is on!"), _react.default.createElement("br", null), _react.default.createElement(_GameState.default, null), _react.default.createElement("br", null), _react.default.createElement(_Guess.default, null), _react.default.createElement("br", null), _react.default.createElement(_DrawCard.default, null), _react.default.createElement("hr", null), _react.default.createElement(_Card.default, null), _react.default.createElement("hr", null), _react.default.createElement("button", {
+      return _react.default.createElement("div", null, _react.default.createElement("h2", null, "\u2660 \u2666 Evens or Odds \u2665 \u2660"), this.props.gameStarted ? _react.default.createElement("div", null, _react.default.createElement("h3", null, "The game is on!"), _react.default.createElement(_GameState.default, null), _react.default.createElement("br", null), _react.default.createElement(_Guess.default, null), _react.default.createElement("br", null), _react.default.createElement(_DrawCard.default, null), _react.default.createElement("hr", null), _react.default.createElement(_Card.default, null), _react.default.createElement("hr", null), _react.default.createElement("button", {
         onClick: this.props.cancelGame
       }, "Cancel Game")) : _react.default.createElement("div", null, _react.default.createElement("h3", null, "A new game awaits"), _react.default.createElement("br", null), _react.default.createElement("button", {
         onClick: this.startGame
@@ -34677,10 +34707,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var DEFAULT_GAME_STATE = {
   guess: "",
-  correctGuesses: 0
+  correctGuesses: 0,
+  incorrectGuesses: 0
 };
-var EVENS = ["2", "4", "6", "8", "0"];
-var ODDS = ["ACE", "3", "5", "7", "9"];
+var EVENS = ["2", "4", "6", "8", "0", "JACK", "KING"];
+var ODDS = ["3", "5", "7", "9", "QUEEN", "ACE"];
 
 var gameStateReducer = function gameStateReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_GAME_STATE;
@@ -34698,11 +34729,16 @@ var gameStateReducer = function gameStateReducer() {
     case _types.DECK_DRAW.FETCH_SUCCESS:
       var value = action.cards[0].value;
       var guess = state.guess,
-          correctGuesses = state.correctGuesses;
+          correctGuesses = state.correctGuesses,
+          incorrectGuesses = state.incorrectGuesses;
 
       if (guess === "even" && EVENS.includes(value) || guess === "odd" && ODDS.includes(value)) {
         return _objectSpread({}, state, {
           correctGuesses: correctGuesses + 1
+        });
+      } else if (guess !== "even" && EVENS.includes(value) || guess !== "odd" && ODDS.includes(value)) {
+        return _objectSpread({}, state, {
+          incorrectGuesses: incorrectGuesses + 1
         });
       }
 
@@ -34871,7 +34907,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63223" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52003" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

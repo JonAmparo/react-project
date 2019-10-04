@@ -32,7 +32,6 @@ class App extends Component {
         {this.props.gameStarted ? (
           <div>
             <h3>The game is on!</h3>
-            <br />
             <GameState />
             <br />
             <Guess />
