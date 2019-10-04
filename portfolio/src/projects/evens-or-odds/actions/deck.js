@@ -1,6 +1,8 @@
 import { DECK, DECK_DRAW } from "./types";
 
-const API_ADDRESS = "https://deck-of-cards-api-wrapper.appspot.com";
+// const API_ADDRESS = "https://deck-of-cards-api-wrapper.appspot.com";
+
+const API_ADDRESS = "https://deckofcardsapi.com";
 
 export const fetchDeckSuccess = deckJson => {
   const { remaining, deck_id } = deckJson;
@@ -13,7 +15,8 @@ export const fetchDeckError = error => {
 };
 
 export const fetchNewDeck = () => dispatch => {
-  return fetch(`${API_ADDRESS}/deck/new/shuffle`)
+  // return fetch(`${API_ADDRESS}/deck/new/shuffle`)
+  return fetch(`${API_ADDRESS}/api/deck/new/shuffle/`)
     .then(response => {
       if (response.status !== 200) {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
@@ -26,7 +29,8 @@ export const fetchNewDeck = () => dispatch => {
 };
 
 export const fetchDrawCard = deck_id => dispatch => {
-  return fetch(`${API_ADDRESS}/deck/${deck_id}/draw`)
+  // return fetch(`${API_ADDRESS}/deck/${deck_id}/draw`)
+  return fetch(`${API_ADDRESS}/api/deck/${deck_id}/draw/`)
     .then(response => {
       if (response.status !== 200) {
         throw new Error("Unsuccessful request to deckofcardsapi.com");

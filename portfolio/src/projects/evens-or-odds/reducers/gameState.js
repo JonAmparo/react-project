@@ -6,7 +6,7 @@ const DEFAULT_GAME_STATE = {
   incorrectGuesses: 0
 };
 
-const EVENS = ["2", "4", "6", "8", "0", "JACK", "KING"];
+const EVENS = ["2", "4", "6", "8", "10", "0", "JACK", "KING"];
 const ODDS = ["3", "5", "7", "9", "QUEEN", "ACE"];
 
 const gameStateReducer = (state = DEFAULT_GAME_STATE, action) => {

@@ -41165,7 +41165,8 @@ exports.fetchDrawCard = exports.fetchNewDeck = exports.fetchDeckError = exports.
 
 var _types = require("./types");
 
-var API_ADDRESS = "https://deck-of-cards-api-wrapper.appspot.com";
+// const API_ADDRESS = "https://deck-of-cards-api-wrapper.appspot.com";
+var API_ADDRESS = "https://deckofcardsapi.com";
 
 var fetchDeckSuccess = function fetchDeckSuccess(deckJson) {
   var remaining = deckJson.remaining,
@@ -41190,7 +41191,8 @@ exports.fetchDeckError = fetchDeckError;
 
 var fetchNewDeck = function fetchNewDeck() {
   return function (dispatch) {
-    return fetch("".concat(API_ADDRESS, "/deck/new/shuffle")).then(function (response) {
+    // return fetch(`${API_ADDRESS}/deck/new/shuffle`)
+    return fetch("".concat(API_ADDRESS, "/api/deck/new/shuffle/")).then(function (response) {
       if (response.status !== 200) {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
       }
@@ -41208,7 +41210,8 @@ exports.fetchNewDeck = fetchNewDeck;
 
 var fetchDrawCard = function fetchDrawCard(deck_id) {
   return function (dispatch) {
-    return fetch("".concat(API_ADDRESS, "/deck/").concat(deck_id, "/draw")).then(function (response) {
+    // return fetch(`${API_ADDRESS}/deck/${deck_id}/draw`)
+    return fetch("".concat(API_ADDRESS, "/api/deck/").concat(deck_id, "/draw/")).then(function (response) {
       if (response.status !== 200) {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
       }
@@ -41749,7 +41752,7 @@ var DEFAULT_GAME_STATE = {
   correctGuesses: 0,
   incorrectGuesses: 0
 };
-var EVENS = ["2", "4", "6", "8", "0", "JACK", "KING"];
+var EVENS = ["2", "4", "6", "8", "10", "0", "JACK", "KING"];
 var ODDS = ["3", "5", "7", "9", "QUEEN", "ACE"];
 
 var gameStateReducer = function gameStateReducer() {
@@ -41981,7 +41984,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55691" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59728" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
