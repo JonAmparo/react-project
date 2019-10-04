@@ -8,10 +8,13 @@
     "history": "^4.7.2",
     "live-server": "^1.2.1",
     "parcel-bundler": "^1.12.3",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
     "react-responsive": "^8.0.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "dev": "parcel src/index.html",
