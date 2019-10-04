@@ -37603,7 +37603,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var TITLES = ['a software engineer', 'an enthusiastic learner', 'a gamer', 'a weight lifter'];
+var TITLES = ["a software engineer", "an enthusiastic learner", "a gamer", "a weight lifter"];
 
 var Title =
 /*#__PURE__*/
@@ -37649,8 +37649,8 @@ function (_Component) {
   }
 
   _createClass(Title, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "UNSAFE_componentDidMount",
+    value: function UNSAFE_componentDidMount() {
       var _this2 = this;
 
       this.timeout = setTimeout(function () {
@@ -37661,8 +37661,8 @@ function (_Component) {
       this.animateTitles();
     }
   }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
+    key: "UNSAFE_componentWillUnmount",
+    value: function UNSAFE_componentWillUnmount() {
       clearInterval(this.titleInterval);
       clearTimeout(this.timeout);
     }
@@ -37674,7 +37674,7 @@ function (_Component) {
           titleIndex = _this$state.titleIndex;
       var title = TITLES[titleIndex];
       return _react.default.createElement("p", {
-        className: fadeIn ? 'title-fade-in' : 'title-fade-out'
+        className: fadeIn ? "title-fade-in" : "title-fade-out"
       }, "I am ", title);
     }
   }]);
@@ -41981,7 +41981,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54839" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55691" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
