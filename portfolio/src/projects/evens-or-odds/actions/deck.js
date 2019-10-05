@@ -1,7 +1,6 @@
 import { DECK, DECK_DRAW } from "./types";
 
-// const API_ADDRESS = "https://deck-of-cards-api-wrapper.appspot.com";
-
+// const API_ADDRESS = "https://deck-of-cards-api-wrapper.appspot.com"; 
 const API_ADDRESS = "https://deckofcardsapi.com";
 
 export const fetchDeckSuccess = deckJson => {
