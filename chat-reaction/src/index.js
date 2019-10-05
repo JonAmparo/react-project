@@ -22,14 +22,14 @@ pubsub.addListener({
   message: messageObject => {
     const { message, channel } = messageObject;
 
-    console.log("Received message: ", message, "channel: ", channel);
+    console.log("Received message:", message, "channel:", channel);
 
     store.dispatch(message);
   }
 });
 
 setTimeout(() => {
-  pubsub.publsh(newMessage("Hello world!"));
+  pubsub.publish(newMessage({ text: "Hello world!", username: "Jonathan" }));
 }, 1000);
 
 ReactDOM.render(

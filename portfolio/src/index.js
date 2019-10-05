@@ -6,6 +6,7 @@ import App from "./components/App";
 import Jokes from "./components/Jokes";
 import MusicMaster from "./projects/music-master";
 import EvensOrOdds from "./projects/evens-or-odds";
+import Reaction from "./projects/chat-reaction";
 import Header from "./components/Header";
 import "./index.css";
 
@@ -42,6 +43,14 @@ ReactDOM.render(
         render={() => (
           <Header>
             <EvensOrOdds />
+          </Header>
+        )}
+      />
+      <Route
+        path="/chat-reaction"
+        render={() => (
+          <Header>
+            <Reaction />
           </Header>
         )}
       />

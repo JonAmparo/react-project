@@ -23,6 +23,9 @@ const Header = ({ children }) => {
         <h3 style={style}>
           <Link to="/evens-or-odds">Evens or Odds</Link>
         </h3>
+        <h3 style={style}>
+          <Link to="/chat-reaction">Chat Reaction</Link>
+        </h3>
       </div>
       {children}
     </div>
