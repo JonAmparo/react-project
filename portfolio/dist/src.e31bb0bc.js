@@ -37392,12 +37392,14 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"warning":"../node_modules/history/node_modules/warning/browser.js","invariant":"../node_modules/invariant/browser.js","./LocationUtils":"../node_modules/history/LocationUtils.js","./PathUtils":"../node_modules/history/PathUtils.js","./createTransitionManager":"../node_modules/history/createTransitionManager.js","./DOMUtils":"../node_modules/history/DOMUtils.js"}],"assets/project1.png":[function(require,module,exports) {
-module.exports = "/project1.0e13da1c.png";
-},{}],"assets/project2.png":[function(require,module,exports) {
-module.exports = "/project2.d48872d8.png";
-},{}],"assets/project3.png":[function(require,module,exports) {
-module.exports = "/project3.592b562e.png";
+},{"warning":"../node_modules/history/node_modules/warning/browser.js","invariant":"../node_modules/invariant/browser.js","./LocationUtils":"../node_modules/history/LocationUtils.js","./PathUtils":"../node_modules/history/PathUtils.js","./createTransitionManager":"../node_modules/history/createTransitionManager.js","./DOMUtils":"../node_modules/history/DOMUtils.js"}],"assets/projectmusic.png":[function(require,module,exports) {
+module.exports = "/projectmusic.d0a2922c.png";
+},{}],"assets/projectevensorodds.png":[function(require,module,exports) {
+module.exports = "/projectevensorodds.339da9ab.png";
+},{}],"assets/projectchat.png":[function(require,module,exports) {
+module.exports = "/projectchat.c1abc2bc.png";
+},{}],"assets/projectnews.png":[function(require,module,exports) {
+module.exports = "/projectnews.00b429c0.png";
 },{}],"data/projects.js":[function(require,module,exports) {
 "use strict";
 
@@ -37406,36 +37408,47 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _project = _interopRequireDefault(require("../assets/project1.png"));
+var _projectmusic = _interopRequireDefault(require("../assets/projectmusic.png"));
 
-var _project2 = _interopRequireDefault(require("../assets/project2.png"));
+var _projectevensorodds = _interopRequireDefault(require("../assets/projectevensorodds.png"));
 
-var _project3 = _interopRequireDefault(require("../assets/project3.png"));
+var _projectchat = _interopRequireDefault(require("../assets/projectchat.png"));
+
+var _projectnews = _interopRequireDefault(require("../assets/projectnews.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import project1 from "../assets/project1.png";
+// import project2 from '../assets/project2.png';
+// import project3 from "../assets/project3.png";
 var PROJECTS = [{
   id: 1,
-  title: 'Example React Application',
-  description: 'A React App that I built, involving JS and core web dev concepts!',
-  link: 'https://github.com/JonAmparo',
-  image: _project.default
+  title: "Evens or Odds Game",
+  description: "A game which collects records locally and utilizes a deckofcards API call.",
+  link: "evens-or-odds",
+  image: _projectevensorodds.default
 }, {
   id: 2,
-  title: 'My API',
-  description: 'A REST API that i built from scratch with GET and POST requests!',
-  link: 'https://github.com/JonAmparo',
-  image: _project2.default
+  title: "Music Player",
+  description: "Music player that uses a Spotify API wrapper.",
+  link: "music-master",
+  image: _projectmusic.default
 }, {
   id: 3,
-  title: 'Operating Systems Final Project',
-  description: 'My uniqge final project for my College Programmer Analyst cours!',
-  link: 'https://github.com/JonAmparo',
-  image: _project3.default
+  title: "Reaction Chat",
+  description: "A chat reaction where people can post and add reaction to that comment!",
+  link: "chat-reaction",
+  image: _projectchat.default
+}, {
+  id: 4,
+  title: "Hacker News Replica",
+  description: "A replica of Hacker News that calls an API using an API",
+  link: "https://hacker-news-replica.herokuapp.com",
+  image: _projectnews.default
 }];
 var _default = PROJECTS;
 exports.default = _default;
-},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"components/Projects.js":[function(require,module,exports) {
+},{"../assets/projectmusic.png":"assets/projectmusic.png","../assets/projectevensorodds.png":"assets/projectevensorodds.png","../assets/projectchat.png":"assets/projectchat.png","../assets/projectnews.png":"assets/projectnews.png"}],"components/Projects.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37459,18 +37472,21 @@ var Project = function Project(props) {
     style: {
       display: "inline-block",
       width: 300,
-      margin: 10
+      margin: 15
     }
-  }, _react.default.createElement("h3", null, title), _react.default.createElement("img", {
+  }, _react.default.createElement("h3", null, title), _react.default.createElement("a", {
+    href: image
+  }, _react.default.createElement("img", {
     src: image,
     alt: "profile",
     style: {
-      width: 200,
-      height: 120
+      width: 300,
+      height: 180,
+      border: "2px solid darkblue"
     }
-  }), _react.default.createElement("p", null, description), _react.default.createElement("a", {
+  })), _react.default.createElement("p", null, description), _react.default.createElement("a", {
     href: link
-  }, link));
+  }, "Visit Project"));
 };
 
 var Projects = function Projects() {
@@ -37492,6 +37508,8 @@ module.exports = "/github_icon.2b0f71f9.png";
 module.exports = "/linkedin_icon.32d4c8f5.png";
 },{}],"assets/twitter_icon.png":[function(require,module,exports) {
 module.exports = "/twitter_icon.38592594.png";
+},{}],"assets/fcc_icon.png":[function(require,module,exports) {
+module.exports = "/fcc_icon.017b5099.png";
 },{}],"data/socialProfiles.js":[function(require,module,exports) {
 "use strict";
 
@@ -37508,28 +37526,34 @@ var _linkedin_icon = _interopRequireDefault(require("../assets/linkedin_icon.png
 
 var _twitter_icon = _interopRequireDefault(require("../assets/twitter_icon.png"));
 
+var _fcc_icon = _interopRequireDefault(require("../assets/fcc_icon.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SOCIAL_PROFILES = [{
   id: 1,
-  link: "mailto:jonathanmamparo@gmail.com",
-  image: _email_icon.default
-}, {
-  id: 2,
   link: "https://github.com/JonAmparo",
   image: _github_icon.default
 }, {
-  id: 3,
+  id: 2,
   link: "https://www.linkedin.com/in/jonathanamparo/",
   image: _linkedin_icon.default
+}, {
+  id: 3,
+  link: "https://www.freecodecamp.org/jonamparo",
+  image: _fcc_icon.default
 }, {
   id: 4,
   link: "https://twitter.com/murdar0",
   image: _twitter_icon.default
+}, {
+  id: 5,
+  link: "mailto:jonathanmamparo@gmail.com",
+  image: _email_icon.default
 }];
 var _default = SOCIAL_PROFILES;
 exports.default = _default;
-},{"../assets/email_icon.png":"assets/email_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"components/SocialProfiles.js":[function(require,module,exports) {
+},{"../assets/email_icon.png":"assets/email_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png","../assets/fcc_icon.png":"assets/fcc_icon.png"}],"components/SocialProfiles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37603,7 +37627,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var TITLES = ["a software engineer", "an enthusiastic learner", "a gamer", "a weight lifter"];
+var TITLES = ["a front-end developer", "an enthusiastic learner", "a gamer", "a weight lifter"];
 
 var Title =
 /*#__PURE__*/
@@ -37766,7 +37790,7 @@ function (_Component) {
         src: _profile.default,
         alt: "profile",
         className: "profile"
-      }), _react.default.createElement("h1", null, "Hello!"), _react.default.createElement("p", null, "My name is Jonathan."), _react.default.createElement(_Title.default, null), _react.default.createElement("p", null, "I'm always looking forward to working on meaningful projects."), this.state.displayBio ? _react.default.createElement("div", null, _react.default.createElement("p", null, "I live in Montreal and I code every day."), _react.default.createElement("p", null, "My favorite language is Javascript, and I think React.js is awesome."), _react.default.createElement("p", null, "Besides coding, I also love gaming and technology."), _react.default.createElement("button", {
+      }), _react.default.createElement("h1", null, "Hello!"), _react.default.createElement("p", null, "My name is Jonathan."), _react.default.createElement(_Title.default, null), _react.default.createElement("p", null, "I'm always looking forward to working on meaningful projects."), this.state.displayBio ? _react.default.createElement("div", null, _react.default.createElement("p", null, "I live in Maryland and I code every day."), _react.default.createElement("p", null, "My favorite language is Javascript, and I think React.js is awesome."), _react.default.createElement("p", null, "Besides coding, I also love gaming and technology."), _react.default.createElement("button", {
         onClick: this.toggleDisplayBio
       }, "Show less")) : _react.default.createElement("div", null, _react.default.createElement("button", {
         onClick: this.toggleDisplayBio
@@ -41992,7 +42016,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59847" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63035" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

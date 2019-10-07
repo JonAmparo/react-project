@@ -5,11 +5,13 @@ const Project = props => {
   const { title, image, description, link } = props.project;
 
   return (
-    <div style={{ display: "inline-block", width: 300, margin: 10 }}>
+    <div style={{ display: "inline-block", width: 300, margin: 15 }}>
       <h3>{title}</h3>
-      <img src={image} alt="profile" style={{ width: 200, height: 120 }} />
+      <a href={image}>
+        <img src={image} alt="profile" style={{ width: 300, height: 180, border: "2px solid darkblue"}} />
+      </a>
       <p>{description}</p>
-      <a href={link}>{link}</a>
+      <a href={link}>Visit Project</a>
     </div>
   );
 };
