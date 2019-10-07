@@ -4,7 +4,7 @@ class App extends Component {
   state = { stories: [] };
 
   componentDidMount() {
-    fetch("http://localhost:3000/topstories")
+    fetch(`${document.location.origin}/topstories`)
       .then(response => response.json())
       .then(json => this.setState({ stories: json }))
       .catch(error => alert(error.message));
@@ -23,7 +23,6 @@ class App extends Component {
                 <h3>{title}</h3>
               </a>
               <p>Upvotes: {score}</p>
-              {/* <p>{by}</p> */}
               <p>
                 {by} - {new Date(time).toLocaleTimeString()}
               </p>

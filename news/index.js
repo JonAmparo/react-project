@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 // essential for hosting on local and on a cloud!!
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, "client/dist")));
 
 app.get("/ping", (req, res) => {
   res.send("pong");
@@ -78,5 +78,5 @@ app.use((err, req, res, next) => {
   res.status(500).json({ type: "error", message: err.message });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
