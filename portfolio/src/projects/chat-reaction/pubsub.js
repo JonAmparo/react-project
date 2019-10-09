@@ -7,7 +7,6 @@ export const MESSAGE_CHANNEL = "MESSAGE_CHANNEL";
 class PubSub {
   constructor() {
     this.pubnub = new PubNub(pubnubConfig);
-
     this.pubnub.subscribe({ channels: [MESSAGE_CHANNEL] });
   }
 
@@ -17,7 +16,6 @@ class PubSub {
 
   publish = message => {
     console.log("publish message", message);
-
     this.pubnub.publish({ message, channel: MESSAGE_CHANNEL });
   };
 }

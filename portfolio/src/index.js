@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
 import App from "./components/App";
 import Jokes from "./components/Jokes";
@@ -58,6 +59,3 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => console.log(`listening on ${PORT}`));

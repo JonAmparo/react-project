@@ -6,7 +6,7 @@ const SocialProfile = props => {
 
   return (
     <span>
-      <a href={link}>
+      <a href={link} target="_blank">
         <img
           src={image}
           alt="social-profile"
