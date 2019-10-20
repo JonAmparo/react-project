@@ -30,14 +30,14 @@ const PROJECTS = [
     github: "https://github.com/JonAmparo/react-project/tree/master/portfolio/src/projects/chat-reaction",
     image: projectchat
   },
-  {
-    id: 4,
-    title: "Hacker News Replica",
-    description: "A replica of Hacker News that calls an API using an API",
-    link: "https://hacker-news-replica.herokuapp.com",
-    github: "https://github.com/JonAmparo/react-project/tree/master/news",
-    image: projectnews
-  }
+  // {
+  //   id: 4,
+  //   title: "Hacker News Replica",
+  //   description: "A replica of Hacker News that calls an API using an API",
+  //   link: "https://hacker-news-replica.herokuapp.com",
+  //   github: "https://github.com/JonAmparo/react-project/tree/master/news",
+  //   image: projectnews
+  // }
 ];
 
 export default PROJECTS;
